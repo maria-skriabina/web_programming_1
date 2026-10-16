@@ -1,0 +1,303 @@
+@font-face {
+  font-family: "Playfair Display SC";
+  src: url("fonts/PlayfairDisplaySC-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display SC";
+  src: url("fonts/PlayfairDisplaySC-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #17191f;
+  color: #d1d5db;
+  line-height: 1.7;
+}
+
+.site-header {
+  background:
+    linear-gradient(rgba(15, 18, 24, 0.72), rgba(15, 18, 24, 0.88)),
+    url("images/header.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.site-header h1 {
+  font-size: 44px;
+  margin: 0 0 16px;
+}
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.section h2 {
+  border-bottom: 1px solid #3b414d;
+  padding-bottom: 12px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  background-color: #242832;
+  border: 1px solid #2d323e;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.2),
+    0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #3d424e;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.2),
+    0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #9ca3af;
+  margin: 0 0 12px;
+  transition:
+    font-size 0.2s ease,
+    color 0.2s ease;
+}
+
+.card:hover p {
+  font-size: 17px;
+  color: #d1d5db;
+}
+
+.card strong {
+  background: linear-gradient(90deg, #fff0b0, #d6a84f, #f8d982);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.spoiler-warning {
+  background: linear-gradient(135deg, #2a1717, #1f1214);
+  color: #f0c9a8;
+  border: 1px solid #8a5a2b;
+  border-left: 4px solid #d6b46a;
+  border-radius: 12px;
+  padding: 16px 22px;
+  max-width: 800px;
+  margin: 28px auto;
+  font-size: 15px;
+  line-height: 1.6;
+  box-shadow: 0 8px 24px -8px rgba(214, 180, 106, 0.25);
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.spoiler-warning:hover {
+  border-color: #d6b46a;
+  box-shadow: 0 12px 32px -8px rgba(214, 180, 106, 0.45);
+}
+
+.spoiler-warning:hover {
+  border-color: #d6b46a;
+  box-shadow: 0 12px 32px -8px rgba(214, 180, 106, 0.45);
+}
+
+.site-header h1,
+.section h2,
+.card h3 {
+  background: linear-gradient(
+    135deg,
+    #fff1b8 0%,
+    #e8bd62 40%,
+    #b87927 70%,
+    #ffe8a0 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-family: "Playfair Display SC", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.btn-details {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #2a2216, #1f1811);
+  border: 1px solid #8a5a2b;
+  border-radius: 10px;
+  color: #d6b46a;
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.btn-details:hover {
+  transform: translateY(-2px);
+  border-color: #d6b46a;
+  color: #fff0b0;
+  box-shadow: 0 6px 18px -6px rgba(214, 180, 106, 0.55);
+}
+
+.btn-details[aria-expanded="true"] {
+  background: linear-gradient(135deg, #3a2c1a, #2a1f0f);
+  border-color: #d6b46a;
+  color: #fff0b0;
+  box-shadow: inset 0 0 12px rgba(214, 180, 106, 0.2);
+}
+
+.spoiler-content {
+  margin-top: 14px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #1f232c, #1a1d24);
+  border-left: 3px solid #d6b46a;
+  border-radius: 10px;
+  animation: spoilerFadeIn 0.35s ease;
+}
+
+.spoiler-content p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #cbd2dc;
+}
+
+.spoiler-content strong {
+  color: #d6b46a;
+}
+
+@keyframes spoilerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #d6b46a, #b87927);
+  border: none;
+  border-radius: 10px;
+  color: #17191f;
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: 0 4px 14px -4px rgba(214, 180, 106, 0.5);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 10px 24px -6px rgba(214, 180, 106, 0.65);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  filter: brightness(0.95);
+}
+
+.site-footer {
+  background:
+    linear-gradient(rgba(15, 18, 24, 0.85), rgba(15, 18, 24, 0.92)),
+    url("images/footer.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 50px 20px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.site-footer p {
+  margin: 6px 0;
+}
+
+.site-footer a {
+  color: #d6b46a;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(214, 180, 106, 0.5);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: #fff0b0;
+  border-color: #d6b46a;
+}
+
+.quote-text {
+  font-size: 17px;
+  font-style: italic;
+  color: #e8d9b6;
+  line-height: 1.7;
+  margin: 20px 0 8px;
+  max-width: 800px;
+}
