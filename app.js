@@ -37,12 +37,19 @@ const quotes = [
 const quoteButton = document.getElementById('btn-quote');
 const quoteDisplay = document.getElementById('quote-display');
 
+let lastQuoteIndex = -1;
+
 if (quoteButton && quoteDisplay) {
     quoteButton.addEventListener('click', () => {
-        const randomIndex = Math.floor(Math.random() * quotes.length);
+        let randomIndex;
 
+        do {
+            randomIndex = Math.floor(Math.random() * quotes.length);
+        } while (randomIndex === lastQuoteIndex && quotes.length > 1);
+        
+        lastQuoteIndex = randomIndex; 
         quoteDisplay.textContent = quotes[randomIndex];
-
+        
         quoteDisplay.style.opacity = '0';
         setTimeout(() => {
             quoteDisplay.style.opacity = '1';
