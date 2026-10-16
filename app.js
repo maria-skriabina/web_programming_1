@@ -60,7 +60,7 @@ if (themeButton) {
         if (document.body.classList.contains('fire-theme')) {
             themeButton.textContent = 'Тёмная тема';
         } else {
-            themeButton.textContent = 'Красная огня';
+            themeButton.textContent = 'Красная тема';
         }
     });
 }
