@@ -1,5 +1,5 @@
 import './api.css';
-import { translateValues, translateSeasons, translateBirth } from './api-translations.js';
+import { translateValues, translateBirth } from './api-translations.js';
 
 const API_URL = 'https://anapioficeandfire.com/api/characters';
 const REQUEST_TIMEOUT_MS = 10_000;
@@ -123,7 +123,6 @@ function createCard(character) {
     createField('Титулы', translateValues(character.titles)),
     createField('Прозвища', translateValues(character.aliases)),
     createField('Рождение', translateBirth(character.born)),
-    createField('Сезоны сериала', translateSeasons(character.tvSeries)),
   );
   card.append(details);
 
