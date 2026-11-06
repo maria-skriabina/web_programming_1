@@ -148,3 +148,21 @@ body.fire-theme .api-intro,
 body.fire-theme .api-counter {
   color: #c9a89a;
 }
+
+.api-details {
+  margin-top: 18px;
+  border-top: 1px solid #8a5a2b;
+  padding-top: 12px;
+  overflow-wrap: anywhere;
+}
+
+.api-details summary {
+  cursor: pointer;
+  color: #d6b46a;
+  font-weight: bold;
+}
+
+.api-details summary:focus-visible {
+  outline: 2px solid #d6b46a;
+  outline-offset: 4px;
+}

@@ -1,4 +1,5 @@
 import './api.css';
+import { translateValues, translateSeasons, translateBirth } from './api-translations.js';
 
 const API_URL = 'https://anapioficeandfire.com/api/characters';
 const REQUEST_TIMEOUT_MS = 10_000;
@@ -57,6 +58,7 @@ const app = document.getElementById('api-app');
 const searchInput = document.getElementById('search');
 const houseSelect = document.getElementById('house-filter');
 const refreshButton = document.getElementById('btn-refresh');
+const resetButton = document.getElementById('btn-reset');
 
 let characters = [];
 
@@ -111,6 +113,19 @@ function createCard(character) {
     createField('В роли', character.playedBy?.find(Boolean)),
     createField('Год рождения', formatBirthYear(character.born)),
   );
+
+  const details = document.createElement('details');
+  details.className = 'api-details';
+  const summary = document.createElement('summary');
+  summary.textContent = 'Подробности персонажа';
+  details.append(
+    summary,
+    createField('Титулы', translateValues(character.titles)),
+    createField('Прозвища', translateValues(character.aliases)),
+    createField('Рождение', translateBirth(character.born)),
+    createField('Сезоны сериала', translateSeasons(character.tvSeries)),
+  );
+  card.append(details);
 
   return card;
 }
@@ -185,6 +200,7 @@ function showError(error) {
 function setControls({ filters, refresh }) {
   searchInput.disabled = !filters;
   houseSelect.disabled = !filters;
+  resetButton.disabled = !filters || !isFiltering();
   refreshButton.disabled = !refresh;
 }
 
@@ -224,10 +240,20 @@ async function loadCharacters() {
   }
 }
 
-if (section && app && searchInput && houseSelect && refreshButton) {
+if (section && app && searchInput && houseSelect && refreshButton && resetButton) {
   fillHouseOptions();
 
-  const update = () => renderCharacters(filterCharacters());
+  const update = () => {
+    renderCharacters(filterCharacters());
+    resetButton.disabled = !isFiltering();
+  };
+  resetButton.addEventListener('click', () => {
+    searchInput.value = '';
+    houseSelect.value = '';
+    expanded = false;
+    update();
+    searchInput.focus();
+  });
   searchInput.addEventListener('input', update);
   houseSelect.addEventListener('change', update);
   refreshButton.addEventListener('click', loadCharacters);
