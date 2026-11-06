@@ -485,3 +485,30 @@ body.fire-theme #scroll-top {
   background: linear-gradient(135deg, #d64a4a, #8a1a1a);
   color: #fff0b0;
 }
+
+.api-card {
+  position: relative;
+  overflow: hidden; 
+  border: 1px solid var(--house-color, #666); 
+  border-color: color-mix(in srgb, var(--house-color) 50%, transparent);
+}
+
+.api-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px; 
+  height: 100%;
+  background-color: var(--house-color, #666); 
+  transition: width 0.2s ease;
+}
+
+.api-card:hover::before {
+  width: 7px;
+}
+
+.api-card:hover h3 {
+  color: var(--house-color, #d6b46a);
+  transition: color 0.2s ease;
+}

@@ -467,6 +467,31 @@
         </div>
       </section>
 
+      <section id="encyclopedia" class="section">
+        <h2>Живая энциклопедия персонажей</h2>
+        <p class="api-intro">
+          Свитки мейстеров Цитадели: сведения о героях сериала.
+        </p>
+
+        <div class="api-controls">
+          <input
+            type="text"
+            id="search"
+            class="api-search"
+            placeholder="Поиск по имени, например «Джон»…"
+            aria-label="Поиск персонажа по имени"
+            autocomplete="off"
+          />
+          <select id="house-filter" class="api-search api-select" aria-label="Фильтр по дому">
+            <option value="">Все дома</option>
+          </select>
+          <button id="btn-reset" class="btn-toggle" type="button" disabled>Сбросить фильтры</button>
+          <button id="btn-refresh" class="btn-toggle" type="button">Обновить</button>
+        </div>
+
+        <div id="api-app" aria-live="polite"></div>
+      </section>
+
       <section id="quotes" class="section">
         <h2>Мудрость Вестероса</h2>
         <p id="quote-display" class="quote-text">
@@ -495,6 +520,7 @@
 
     <button id="scroll-top" type="button" title="Наверх">↑</button>
 
-    <script src="app.js"></script>
+    <script type="module" src="./app.js"></script>
+    <script type="module" src="./api.js"></script>
   </body>
 </html>
