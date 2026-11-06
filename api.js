@@ -4,6 +4,19 @@ import { translateValues, translateBirth } from './api-translations.js';
 const API_URL = 'https://anapioficeandfire.com/api/characters';
 const REQUEST_TIMEOUT_MS = 10_000;
 
+const HOUSE_COLORS = {
+   'Старк': '#8fa1b3',       
+  'Ланнистер': '#d4af37',   
+  'Таргариен': '#8b0000',   
+  'Баратеон': '#4a4a4a',    
+  'Тирелл': '#2e7d32',      
+  'Мартелл': '#ff8c00',     
+  'Грейджой': '#2c3e50', 
+  'Талли': '#4682b4',  
+  'Аррен': '#87ceeb',        
+  'Другие': '#95a5a6'       
+};
+
 const MAIN_CHARACTERS = [
   { id: 339, name: 'Эддард Старк', house: 'Старк' },
   { id: 232, name: 'Кейтилин Старк', house: 'Талли' },
@@ -101,6 +114,9 @@ function createField(label, value) {
 function createCard(character) {
   const card = document.createElement('article');
   card.className = 'card api-card';
+
+  const houseColor = HOUSE_COLORS[character.house] || HOUSE_COLORS['Другие'];
+  card.style.setProperty('--house-color', houseColor);
 
   const title = document.createElement('h3');
   title.textContent = character.ruName;
